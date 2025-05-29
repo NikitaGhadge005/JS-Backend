@@ -1,0 +1,16 @@
+{
+  "name": "youtub",
+  "version": "1.0.0",
+  "description": "a js-backend",
+  "keywords": [
+    "backend",
+    "javascript"
+  ],
+  "license": "ISC",
+  "author": "nikita ghadge",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
