@@ -25,7 +25,7 @@ const userSchema = new Schema({
     },
 
     // Full name field
-    Fullname: {
+    fullName: {
         type: String,
         required: true,       // Must be provided
         trim: true,           // Remove whitespace
@@ -39,7 +39,7 @@ const userSchema = new Schema({
     },
 
     // Cover image field (optional)
-    coverimage: {
+    coverImage: {
         type: String          // Optional Cloudinary URL
     },
 
@@ -50,7 +50,7 @@ const userSchema = new Schema({
     }],
 
     // Password field (note: misspelled as "pasaword")
-    pasaword: {
+    password: {
         type: String,
         required: [true, "password is required"] // Required with custom error
     },
@@ -86,7 +86,7 @@ userSchema.methods.generateAccessToken = function () {
             _id: this.id,
             email: this.email,
             username: this.username,
-            Fullname: this.Fullname
+            fullname: this.fullname
         },
         process.env.ACCESS_TOKEN_SECRET,            // Secret from .env
         {

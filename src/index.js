@@ -1,3 +1,4 @@
+
 // Load environment variables from .env file
 import dotenv from "dotenv";
 dotenv.config({
@@ -17,7 +18,7 @@ console.log("🟢 index.js is running");
 connectDB()
   .then(() => {
     // Start the Express server on the specified port
-    const PORT = process.env.PORT || 8000;
+    const PORT = process.env.PORT || 3000;
     app.listen(PORT, () => {
       console.log(`🚀 Server is running at port: ${PORT}`);
     });

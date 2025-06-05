@@ -1,37 +1,27 @@
-// A reusable wrapper for async route handlers to catch errors and pass them to Express error middleware
-const asyncHandler = (reqHandler) => {
+const asyncHandler = (requestHandler) => {
     return (req, res, next) => {
-        Promise.resolve(reqHandler(req, res, next)).catch(next); // Pass error to next middleware
-    };
-};
-
-export { asyncHandler };
+        Promise.resolve(requestHandler(req, res, next)).catch((err) => next(err))
+    }
+}
 
 
+export { asyncHandler }
 
 
 
-/*
 
-//Usenig try cath method
+// const asyncHandler = () => {}
+// const asyncHandler = (func) => () => {}
+// const asyncHandler = (func) => async () => {}
 
 
-// const asyncHandler=()=>{}
-// const asyncHandler=(fun)=>()=>{}
-// const asyncHandler=(fun)=> async()=>{}
-
- 
-// A wrapper using try-catch for better readability in some cases
-const asyncHandler = (fun) => {
-    return async (req, res, next) => {
-        try {
-            await fun(req, res, next); // Call original function
-        } catch (err) {
-            next(err); // Forward error to Express error middleware
-        }
-    };
-};
-
-export { asyncHandler };
-
-    */
+// const asyncHandler = (fn) => async (req, res, next) => {
+//     try {
+//         await fn(req, res, next)
+//     } catch (error) {
+//         res.status(err.code || 500).json({
+//             success: false,
+//             message: err.message
+//         })
+//     }
+// }
